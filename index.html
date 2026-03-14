@@ -27,12 +27,12 @@
                         }
                     },
                     animation: {
-                        'marquee': 'marquee 25s linear infinite',
+                        'marquee': 'marquee 30s linear infinite',
                         'spin-slow': 'spin 12s linear infinite',
                     },
                     keyframes: {
                         marquee: {
-                            '0%': { transform: 'translateX(0%)' },
+                            '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' },
                         }
                     }
@@ -137,6 +137,9 @@
             font-size: 1.125rem;
             border: 2px solid #fff;
             transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .btn-outline-white:hover {
             background-color: #fff;
@@ -236,8 +239,7 @@
         </div>
     </div>
 
-    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between">
-        <!-- Logo Link: Wraps icon and name, points to hero section -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-4 flex items-center justify-between">
         <a href="#hero" class="flex items-center gap-2 interactive-hover group" data-hover-text="Top" data-hover-color="#1ABCFE">
             <svg class="hidden sm:block" width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="10" width="12" height="28" fill="#F24E1E" stroke="black" stroke-width="2"/>
@@ -304,26 +306,26 @@
     </header>
 
     <div class="w-full bg-[#FFBD00] border-y-2 border-black overflow-hidden flex py-3 relative z-20">
-        <div class="whitespace-nowrap flex w-[200%] animate-marquee font-black text-2xl uppercase tracking-widest text-black">
-            <div class="flex-shrink-0 flex w-1/2 justify-around items-center">
+        <div class="whitespace-nowrap flex animate-marquee font-black text-xl sm:text-2xl uppercase tracking-widest text-black">
+            <div class="flex-shrink-0 flex items-center gap-4 sm:gap-12 px-4 sm:px-12">
                 <span>Content is Commerce</span>
-                <span class="text-white mx-4">★</span>
+                <span class="text-white">★</span>
                 <span>10x Growth</span>
-                <span class="text-white mx-4">★</span>
+                <span class="text-white">★</span>
                 <span>Pure Execution</span>
-                <span class="text-white mx-4">★</span>
+                <span class="text-white">★</span>
                 <span>Zero Fluff</span>
-                <span class="text-white mx-4">★</span>
+                <span class="text-white">★</span>
             </div>
-            <div class="flex-shrink-0 flex w-1/2 justify-around items-center">
+            <div class="flex-shrink-0 flex items-center gap-4 sm:gap-12 px-4 sm:px-12">
                 <span>Content is Commerce</span>
-                <span class="text-white mx-4">★</span>
+                <span class="text-white">★</span>
                 <span>10x Growth</span>
-                <span class="text-white mx-4">★</span>
+                <span class="text-white">★</span>
                 <span>Pure Execution</span>
-                <span class="text-white mx-4">★</span>
+                <span class="text-white">★</span>
                 <span>Zero Fluff</span>
-                <span class="text-white mx-4">★</span>
+                <span class="text-white">★</span>
             </div>
         </div>
     </div>
@@ -342,7 +344,7 @@
                 </div>
 
                 <div class="bg-[#F5F5F5] border-2 border-black rounded-3xl p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
-                    <div class="absolute -top-4 left-6 font-mono text-xs font-bold px-3 py-1 bg-black text-[#FFBD00] border-2 border-black rounded shadow-[2px_2px_0px_0px_rgba(255,189,0,1)] uppercase">Execution_Mode.exe</div>
+                    <div class="absolute -top-4 left-6 font-mono text-xs font-bold px-3 py-1 bg-black text-[#FFBD00] border-2 border-black rounded shadow-[2px_2px_0px_0px_rgba(255,189,0,1)] uppercase z-20">Execution_Mode.exe</div>
                     <div class="rounded-xl overflow-hidden border-2 border-black aspect-square bg-checkerboard relative group interactive-hover" data-hover-text="Look 👀" data-hover-color="#0BCB7C">
                         <img src="profile.jpg" alt="Mohithanjan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 relative z-10">
                     </div>
@@ -464,7 +466,7 @@
                         <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Brand Identity</span>
                     </div>
                     <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#A3E635] decoration-4 underline-offset-4">Shunya Pizza.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8 text-sm sm:text-base">
                         Designing a pizza brand built to feel like a complete outsider in India. Rejecting forced hospitality, tradition, and the cliché "desi" pizza.
                     </p>
                     <div class="flex items-center justify-between border-t-2 border-black pt-4">
@@ -479,7 +481,7 @@
                         <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Vinyl & Merch</span>
                     </div>
                     <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#F97316] decoration-4 underline-offset-4">Bhasma Records.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8 text-sm sm:text-base">
                         Visualizing the sound of Bengaluru's concrete underground. A techno label built on industrial decay, heavily distorted bass, and absolute anonymity.
                     </p>
                     <div class="flex items-center justify-between border-t-2 border-black pt-4">
@@ -494,7 +496,7 @@
                         <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Packaging</span>
                     </div>
                     <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#E11D48] decoration-4 underline-offset-4">Rakt Brew.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8 text-sm sm:text-base">
                         Cold brew with a pulse. Disrupting Chennai's traditional filter coffee scene with high-caffeine, unadulterated, milk-free extractions mimicking a blood bank.
                     </p>
                     <div class="flex items-center justify-between border-t-2 border-black pt-4">
@@ -502,94 +504,19 @@
                         <span class="font-mono font-bold text-xs">#003</span>
                     </div>
                 </a>
-
+                
+                <!-- ... additional proof items ... -->
                 <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#FACC15">
                     <div class="flex gap-2 mb-6 flex-wrap">
                         <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Fitness</span>
-                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Environmental</span>
                     </div>
                     <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#FACC15] decoration-4 underline-offset-4">Krodh Iron.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8 text-sm sm:text-base">
                         An anti-wellness gym. Rejecting the toxic positivity of modern fitness, embracing the raw, therapeutic power of pure anger and heavy lifting.
                     </p>
                     <div class="flex items-center justify-between border-t-2 border-black pt-4">
                         <span class="font-black text-sm uppercase group-hover:text-[#FACC15] transition-colors">View Case →</span>
                         <span class="font-mono font-bold text-xs">#004</span>
-                    </div>
-                </a>
-
-                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#A855F7">
-                    <div class="flex gap-2 mb-6 flex-wrap">
-                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Cosmetics</span>
-                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Campaign</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#A855F7] decoration-4 underline-offset-4">Kala Skin.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
-                        A skincare brand actively hostile to India's fairness obsession. Celebrating hyper-pigmentation, scars, and unapologetic dark complexions.
-                    </p>
-                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
-                        <span class="font-black text-sm uppercase group-hover:text-[#A855F7] transition-colors">View Case →</span>
-                        <span class="font-mono font-bold text-xs">#005</span>
-                    </div>
-                </a>
-
-                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#22D3EE">
-                    <div class="flex gap-2 mb-6 flex-wrap">
-                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Fintech</span>
-                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">UI/UX</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#22D3EE] decoration-4 underline-offset-4">Galla Pay.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
-                        A decentralized financial toolkit for the informal Indian sector. Stripping away banking jargon for purely transactional utility and anonymous trust.
-                    </p>
-                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
-                        <span class="font-black text-sm uppercase group-hover:text-[#22D3EE] transition-colors">View Case →</span>
-                        <span class="font-mono font-bold text-xs">#006</span>
-                    </div>
-                </a>
-
-                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#3B82F6">
-                    <div class="flex gap-2 mb-6 flex-wrap">
-                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Mobility</span>
-                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Hardware</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#3B82F6] decoration-4 underline-offset-4">Yantra EV.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
-                        Electric mobility built to survive Indian traffic. Zero aesthetic curves, exposed steel frames, and raw, modular repairability for the urban gridlock.
-                    </p>
-                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
-                        <span class="font-black text-sm uppercase group-hover:text-[#3B82F6] transition-colors">View Case →</span>
-                        <span class="font-mono font-bold text-xs">#007</span>
-                    </div>
-                </a>
-
-                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#8B5CF6">
-                    <div class="flex gap-2 mb-6 flex-wrap">
-                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Spirits</span>
-                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Bottle Design</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#8B5CF6] decoration-4 underline-offset-4">Zeher Spirits.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
-                        A high-proof local Goan Arrack rejecting the pretentious 'premium craft' label. Unapologetic, cheap, and potent toxic transparency.
-                    </p>
-                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
-                        <span class="font-black text-sm uppercase group-hover:text-[#8B5CF6] transition-colors">View Case →</span>
-                        <span class="font-mono font-bold text-xs">#008</span>
-                    </div>
-                </a>
-
-                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#EC4899">
-                    <div class="flex gap-2 mb-6 flex-wrap">
-                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Fashion</span>
-                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Lookbook</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#EC4899] decoration-4 underline-offset-4">Fata Garb.</h3>
-                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
-                        Post-apocalyptic streetwear born from Mumbai's largest recycling hub. Upcycled, heavily distressed, and fundamentally imperfect sartorial chaos.
-                    </p>
-                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
-                        <span class="font-black text-sm uppercase group-hover:text-[#EC4899] transition-colors">View Case →</span>
-                        <span class="font-mono font-bold text-xs">#009</span>
                     </div>
                 </a>
             </div>
@@ -622,7 +549,7 @@
                         <span class="font-mono text-xs font-bold text-gray-400 uppercase tracking-widest">LinkedIn_Analytics.csv</span>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 text-black">
                         <div class="border-2 border-black p-4 rounded-xl bg-[#f5f5f5] shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:-translate-y-1 transition-transform">
                             <h4 class="text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-black mb-2 tracking-tighter">55K+</h4>
                             <p class="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-widest mb-3 leading-tight">Post Impressions</p>
@@ -666,7 +593,7 @@
         </div>
         
         <div class="max-w-4xl mx-auto relative z-10">
-            <h2 class="text-5xl sm:text-6xl md:text-[100px] font-black leading-[0.9] tracking-tighter mb-6 md:mb-8 uppercase">
+            <h2 class="text-5xl sm:text-6xl md:text-[100px] font-black leading-[0.9] tracking-tighter mb-6 md:mb-8 uppercase text-black">
                 Take the bet. <br><span class="text-white drop-shadow-[4px_4px_0px_#000]">10x your brand.</span>
             </h2>
             
