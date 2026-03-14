@@ -1,4 +1,4 @@
-# Mohithanjan — Unconventional Brand Strategist Portfolio
+# Mohithanjan — Marketing & Brand Strategist Portfolio
 
 A high-impact, single-page portfolio designed for a multi-disciplinary freelancer. This site merges Neo-Brutalist aesthetics with functional "Figma-style" multiplayer interactions to create a unique, high-conversion digital experience.
 
