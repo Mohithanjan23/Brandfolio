@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohithanjan - Unconventional Brand Strategist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"SF Mono"', 'ui-monospace', 'monospace'],
+                    },
+                    colors: {
+                        figma: {
+                            bg: '#F5F5F5',
+                            green: '#0BCB7C',
+                            blue: '#1ABCFE',
+                            purple: '#9C70FF',
+                            red: '#F24E1E',
+                            yellow: '#FFBD00'
+                        }
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --figma-bg: #F5F5F5;
+            --text-dark: #000000;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--figma-bg);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        @media (min-width: 768px) {
+            body, a, button, .feature-card, input, textarea, .cursor-pointer {
+                cursor: none !important;
+            }
+        }
+
+        h1, h2, h3 {
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        nav {
+            background: rgba(245, 245, 245, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid #000;
+        }
+
+        .hero {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+            background-size: 32px 32px;
+            animation: panGrid 40s linear infinite;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes panGrid {
+            0% { background-position: 0 0; }
+            100% { background-position: 320px 320px; }
+        }
+
+        .shape-glow {
+            position: absolute;
+            z-index: 1;
+            filter: blur(100px);
+            border-radius: 9999px;
+            animation: float-glow 10s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes float-glow {
+            0% { transform: translate(0px, 0px) scale(1); opacity: 0.4; }
+            100% { transform: translate(40px, -40px) scale(1.15); opacity: 0.6; }
+        }
+
+        @keyframes float-glow-reverse {
+            0% { transform: translate(0px, 0px) scale(1); opacity: 0.4; }
+            100% { transform: translate(-50px, 30px) scale(1.2); opacity: 0.5; }
+        }
+
+        .btn-primary {
+            background-color: #000;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border: 2px solid #000;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+        }
+        .btn-primary:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+        }
+        .btn-primary:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border: 2px solid #fff;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-outline-white:hover {
+            background-color: #fff;
+            color: #000;
+            transform: scale(1.02);
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 24px;
+            padding: 48px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+        }
+
+        .multiplayer-cursor {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+            animation: float 4s ease-in-out infinite alternate;
+        }
+        .multiplayer-cursor svg {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .cursor-label {
+            position: absolute;
+            top: 22px;
+            left: 18px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            white-space: nowrap;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            100% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        .bg-checkerboard {
+            background-color: #f0f0f0;
+            background-image: 
+                linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd),
+                linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        .ad-highlight {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .ad-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: -4px;
+            right: -4px;
+            height: 40%;
+            background-color: #FFBD00;
+            z-index: -1;
+            transform: skewX(-15deg);
+        }
+
+    </style>
+</head>
+<body class="grid-bg">
+
+    <div id="interactive-cursor" class="pointer-events-none fixed top-0 left-0 z-[100] hidden md:block transition-opacity duration-300 opacity-0" style="transform: translate(-100px, -100px);">
+        <div id="cursor-scaler" class="transition-transform duration-200 origin-top-left" style="transform: scale(1);">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25)); position: absolute; top: 0; left: 0;">
+                <path d="M3.5 3.5L11 25L14 16L23 13L3.5 3.5Z" fill="#1ABCFE" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+            </svg>
+            <div id="cursor-label-interactive" class="absolute top-[22px] left-[18px] px-3 py-1.5 rounded-full text-white font-bold text-[13px] whitespace-nowrap shadow-md transition-colors duration-300" style="background-color: #1ABCFE;">
+                You
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between">
+        <!-- Logo Link: Wraps icon and name, points to hero section -->
+        <a href="#hero" class="flex items-center gap-2 interactive-hover group" data-hover-text="Top" data-hover-color="#1ABCFE">
+            <svg class="hidden sm:block" width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="10" width="12" height="28" fill="#F24E1E" stroke="black" stroke-width="2"/>
+                <rect x="14" y="20" width="12" height="18" fill="#FFBD00" stroke="black" stroke-width="2"/>
+                <rect x="26" y="2" width="12" height="36" fill="#0BCB7C" stroke="black" stroke-width="2"/>
+            </svg>
+            <div class="relative inline-block border-2 border-[#1ABCFE] bg-[#e5f0ff] px-2 sm:px-3 py-1 sm:ml-2 shadow-[2px_2px_0px_rgba(0,0,0,1)] group-hover:translate-x-[1px] group-hover:translate-y-[1px] group-hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all">
+                <span class="font-black text-xl sm:text-2xl tracking-tighter text-black relative z-10 leading-none block whitespace-nowrap uppercase">Mohithanjan</span>
+                <div class="absolute -top-1.5 -left-1.5 w-2 h-2 bg-[#e5f0ff] border-2 border-[#1ABCFE]"></div>
+                <div class="absolute -top-1.5 -right-1.5 w-2 h-2 bg-[#e5f0ff] border-2 border-[#1ABCFE]"></div>
+                <div class="absolute -bottom-1.5 -left-1.5 w-2 h-2 bg-[#e5f0ff] border-2 border-[#1ABCFE]"></div>
+                <div class="absolute -bottom-1.5 -right-1.5 w-2 h-2 bg-[#e5f0ff] border-2 border-[#1ABCFE]"></div>
+            </div>
+        </a>
+        <div class="hidden md:flex gap-8 font-bold text-[15px] uppercase tracking-wider">
+            <a href="#strategy" class="hover:text-[#F24E1E] transition-colors interactive-hover" data-hover-text="Navigate" data-hover-color="#0BCB7C">Strategy</a>
+            <a href="#branding" class="hover:text-[#1ABCFE] transition-colors interactive-hover" data-hover-text="Navigate" data-hover-color="#0BCB7C">Services</a>
+            <a href="#campaigns" class="hover:text-[#9C70FF] transition-colors interactive-hover" data-hover-text="Navigate" data-hover-color="#0BCB7C">Results</a>
+        </div>
+        <div>
+            <a href="#contact" class="btn-primary !py-2 !px-4 sm:!px-6 !text-xs sm:!text-sm uppercase tracking-wider interactive-hover hover:!bg-[#F24E1E] hover:!text-white hover:!border-black" data-hover-text="Apply Now" data-hover-color="#F24E1E">Apply For A Spot</a>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero pt-28 md:pt-32 lg:pt-48 pb-16 md:pb-20 px-4 md:px-6 min-h-[85vh] flex flex-col items-center justify-center text-center">
+        <div class="shape-glow w-[400px] h-[400px] bg-[#9C70FF] -top-20 -left-20 mix-blend-screen"></div>
+        <div class="shape-glow w-[600px] h-[300px] bg-[#F24E1E] bottom-0 right-0 mix-blend-screen" style="animation-duration: 15s; animation-name: float-glow-reverse;"></div>
+        <div class="shape-glow w-[350px] h-[350px] bg-[#1ABCFE] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-screen" style="animation-duration: 12s; animation-delay: -5s;"></div>
+
+        <div class="relative z-10 max-w-5xl w-full">
+            <div class="inline-flex items-center bg-black text-white px-5 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-6 border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform interactive-hover cursor-none" data-hover-text="Act Fast" data-hover-color="#F24E1E">
+                <span class="relative flex h-3 w-3 mr-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0BCB7C] opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-[#0BCB7C]"></span>
+                </span>
+                <span>1 Spot Remaining For <span class="dynamic-month text-[#0BCB7C]">Next Month</span></span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-6xl md:text-8xl lg:text-[110px] font-black tracking-tighter mb-6 md:mb-8 leading-[0.9]">
+                I bet I can scale your brand<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#1ABCFE] to-[#0BCB7C] block mt-2 italic">10x faster.</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl font-medium text-gray-300 max-w-4xl mx-auto mb-10 md:mb-12">
+                I believe <span class="text-white font-bold border-b-2 border-[#9C70FF]">Content is the next Commerce</span>. As a Developer, Designer, Filmmaker, and Brand Strategist, I leverage pure hustle and multi-disciplinary skill to build engines that sell.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
+                <a href="#contact" class="btn-primary interactive-hover w-full sm:w-auto uppercase tracking-wide hover:!bg-[#0BCB7C] hover:!text-black" style="background:#FFBD00; color:#000; border-color:#000;" data-hover-text="Let's Talk" data-hover-color="#9C70FF">Take the Bet</a>
+                <a href="#campaigns" class="btn-outline-white interactive-hover w-full sm:w-auto uppercase tracking-wide hover:!bg-white hover:!text-black" data-hover-text="View Work" data-hover-color="#F24E1E">See the Proof</a>
+            </div>
+        </div>
+
+        <div class="multiplayer-cursor hidden md:block" style="top: 20%; right: 12%; animation-delay: 0s;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M3.5 3.5L11 25L14 16L23 13L3.5 3.5Z" fill="#9C70FF" stroke="white" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            <div class="cursor-label" style="background-color: #9C70FF;">Founder</div>
+        </div>
+        <div class="multiplayer-cursor hidden md:block" style="top: 18%; left: 8%; animation-delay: 1.5s;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M3.5 3.5L11 25L14 16L23 13L3.5 3.5Z" fill="#FFBD00" stroke="white" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            <div class="cursor-label" style="background-color: #FFBD00; color: white;">Designer</div>
+        </div>
+        <div class="multiplayer-cursor hidden md:block" style="bottom: 20%; left: 10%; animation-delay: 3s; animation-duration: 5s;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M3.5 3.5L11 25L14 16L23 13L3.5 3.5Z" fill="#0BCB7C" stroke="white" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            <div class="cursor-label" style="background-color: #0BCB7C;">Client</div>
+        </div>
+    </header>
+
+    <div class="w-full bg-[#FFBD00] border-y-2 border-black overflow-hidden flex py-3 relative z-20">
+        <div class="whitespace-nowrap flex w-[200%] animate-marquee font-black text-2xl uppercase tracking-widest text-black">
+            <div class="flex-shrink-0 flex w-1/2 justify-around items-center">
+                <span>Content is Commerce</span>
+                <span class="text-white mx-4">★</span>
+                <span>10x Growth</span>
+                <span class="text-white mx-4">★</span>
+                <span>Pure Execution</span>
+                <span class="text-white mx-4">★</span>
+                <span>Zero Fluff</span>
+                <span class="text-white mx-4">★</span>
+            </div>
+            <div class="flex-shrink-0 flex w-1/2 justify-around items-center">
+                <span>Content is Commerce</span>
+                <span class="text-white mx-4">★</span>
+                <span>10x Growth</span>
+                <span class="text-white mx-4">★</span>
+                <span>Pure Execution</span>
+                <span class="text-white mx-4">★</span>
+                <span>Zero Fluff</span>
+                <span class="text-white mx-4">★</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-16 md:py-24 px-4 md:px-6 border-b-2 border-black bg-white" id="strategy">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 relative">
+                <div class="absolute -top-10 -right-10 z-20 w-32 h-32 hidden md:flex items-center justify-center animate-spin-slow pointer-events-none">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-black fill-current overflow-visible">
+                        <path id="curve" fill="transparent" d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+                        <text font-size="12.5" font-weight="900" class="uppercase" fill="#000">
+                            <textPath href="#curve" startOffset="0" textLength="251.2" lengthAdjust="spacing">CODE • FILM • DESIGN • GROWTH • </textPath>
+                        </text>
+                    </svg>
+                    <div class="absolute text-3xl font-black text-[#F24E1E]">★</div>
+                </div>
+
+                <div class="bg-[#F5F5F5] border-2 border-black rounded-3xl p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
+                    <div class="absolute -top-4 left-6 font-mono text-xs font-bold px-3 py-1 bg-black text-[#FFBD00] border-2 border-black rounded shadow-[2px_2px_0px_0px_rgba(255,189,0,1)] uppercase">Execution_Mode.exe</div>
+                    <div class="rounded-xl overflow-hidden border-2 border-black aspect-square bg-checkerboard relative group interactive-hover" data-hover-text="Look 👀" data-hover-color="#0BCB7C">
+                        <img src="profile.jpg" alt="Mohithanjan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 relative z-10">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+                <div class="inline-flex items-center justify-center padding px-4 py-1.5 rounded-full border-2 border-[#000] font-bold text-xs uppercase tracking-widest bg-[#0BCB7C] text-black shadow-[2px_2px_0px_rgba(0,0,0,1)] mb-4 md:mb-6">The Multi-Disciplinary Edge</div>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 md:mb-6 leading-tight">
+                    <span class="ad-highlight z-10">Content</span> is the next <span class="ad-highlight z-10">Commerce.</span>
+                </h2>
+                <p class="text-lg sm:text-xl font-medium mb-6 leading-relaxed text-gray-800">
+                    I am a <strong class="text-black">Developer, Designer, Content Creator, Filmmaker, Marketing and Brand Strategist</strong> all rolled into one. I didn't learn branding in a classroom—I learned it in the trenches. I have zero formal agency experience and no marketing degrees, and that is my biggest advantage. By owning the entire creative stack, I bypass the fluff and scale brands through pure freelance hustle and unconventional execution.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span class="px-3 py-1.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded border border-black shadow-[2px_2px_0px_rgba(156,112,255,1)]">Developer</span>
+                    <span class="px-3 py-1.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded border border-black shadow-[2px_2px_0px_rgba(26,188,254,1)]">Designer</span>
+                    <span class="px-3 py-1.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded border border-black shadow-[2px_2px_0px_rgba(11,203,124,1)]">Filmmaker</span>
+                    <span class="px-3 py-1.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded border border-black shadow-[2px_2px_0px_rgba(255,189,0,1)]">Content Creator</span>
+                    <span class="px-3 py-1.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded border border-black shadow-[2px_2px_0px_rgba(242,78,30,1)]">Marketing & Brand Strategist</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-32 px-4 md:px-6 border-b-2 border-black bg-[#111] text-white" id="branding">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 md:mb-24">
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-black mb-4 md:mb-6">How We Win</h2>
+                <p class="text-lg sm:text-xl font-medium max-w-2xl mx-auto text-gray-400">The exact skills I use to take your product from zero to market dominance.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
+                <div class="feature-card group interactive-hover !bg-[#e5f0ff] hover:!bg-[#1ABCFE] flex flex-col justify-end" data-hover-text="Explore" data-hover-color="#111">
+                    <div class="relative w-32 h-52 mx-auto mb-10 bg-[#111] border-4 border-[#222] rounded-[2rem] overflow-hidden transform group-hover:scale-105 group-hover:rotate-3 transition-transform duration-500 shadow-2xl">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-4 bg-[#222] rounded-b-xl z-20"></div>
+                        <div class="w-full h-full bg-white p-3 pt-8 flex flex-col gap-2 relative">
+                            <div class="w-full h-20 bg-[#1ABCFE] rounded-xl flex items-center justify-center overflow-hidden">
+                                <div class="w-16 h-16 rounded-full bg-white/30 mix-blend-overlay"></div>
+                            </div>
+                            <div class="w-3/4 h-2 bg-gray-200 rounded-full mt-2"></div>
+                            <div class="w-1/2 h-2 bg-gray-200 rounded-full"></div>
+                            <div class="flex gap-2 mt-2">
+                                <div class="w-1/2 h-8 bg-gray-100 rounded-lg"></div>
+                                <div class="w-1/2 h-8 bg-gray-100 rounded-lg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-black mb-4 group-hover:text-white transition-colors">Identity & Positioning</h3>
+                        <p class="text-lg font-bold leading-snug group-hover:text-white transition-colors">Making your brand unmistakable. I build narrative guidelines that cut through the noise immediately.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card group interactive-hover !bg-[#fff0e5] hover:!bg-[#F24E1E] flex flex-col justify-end" data-hover-text="Explore" data-hover-color="#111">
+                    <div class="relative w-48 h-28 mx-auto mb-16 transform group-hover:-rotate-3 group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-[#222] border-[5px] border-[#111] rounded shadow-xl z-10 overflow-hidden">
+                            <div class="w-full h-full bg-[#FFBD00] flex flex-col items-center justify-center p-2 relative overflow-hidden border-2 border-[#222]">
+                                <div class="absolute -right-4 top-0 w-12 h-32 bg-white/20 transform rotate-12"></div>
+                                <span class="font-black text-black text-2xl uppercase tracking-tighter leading-none">10X</span>
+                                <span class="font-bold text-black text-sm uppercase tracking-widest bg-white px-2 mt-1">Growth</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 left-8 w-2 h-12 bg-[#333]"></div>
+                        <div class="absolute -bottom-10 right-8 w-2 h-12 bg-[#333]"></div>
+                        <div class="absolute -bottom-12 left-2 right-2 h-2 bg-black/20 rounded-[50%] blur-[2px]"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-black mb-4 group-hover:text-white transition-colors">Aggressive Scaling</h3>
+                        <p class="text-lg font-bold leading-snug group-hover:text-white transition-colors">Scaling reach with high-impact, untraditional advertising designed purely to convert and maximize ROI.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card group interactive-hover !bg-[#f7e5ff] hover:!bg-[#9C70FF] flex flex-col justify-end" data-hover-text="Explore" data-hover-color="#111">
+                    <div class="relative w-full max-w-[200px] h-32 mx-auto mb-10 bg-[#222] border-4 border-[#333] rounded-lg overflow-hidden transform group-hover:translate-y-[-8px] transition-transform duration-500 shadow-xl flex flex-col">
+                        <div class="h-4 bg-[#111] flex items-center px-2 gap-1.5 w-full">
+                            <div class="w-2 h-2 rounded-full bg-[#ff5f56]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#ffbd2e]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#27c93f]"></div>
+                        </div>
+                        <div class="flex-1 bg-white relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-[#9C70FF]/20 rounded-full blur-xl"></div>
+                            <div class="absolute bottom-0 left-0 w-16 h-16 bg-[#1ABCFE]/20 rounded-full blur-xl"></div>
+                            <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 transition-transform">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="white" class="ml-1"><path d="M5 3l14 9-14 9V3z"/></svg>
+                            </div>
+                            <div class="absolute bottom-2 left-2 right-2 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="w-1/2 h-full bg-[#9C70FF]"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-black mb-4 group-hover:text-white transition-colors">Viral Mechanics</h3>
+                        <p class="text-lg font-bold leading-snug group-hover:text-white transition-colors">Using filmmaking, internet culture, and high-end design to craft sequences that audiences actually want to share.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 px-4 md:px-6 border-b-2 border-black bg-white" id="campaigns">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between mb-10 md:mb-16">
+                <div>
+                    <h2 class="text-4xl sm:text-5xl md:text-7xl font-black mb-2">The Proof</h2>
+                    <p class="font-bold text-gray-500 uppercase tracking-widest text-sm">Case Studies & Tactics</p>
+                </div>
+                <div class="hidden md:flex items-center gap-2">
+                    <div class="w-4 h-4 rounded-full bg-[#F24E1E]"></div>
+                    <div class="w-4 h-4 rounded-full bg-[#FFBD00]"></div>
+                    <div class="w-4 h-4 rounded-full bg-[#0BCB7C]"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#A3E635">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">F&B</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Brand Identity</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#A3E635] decoration-4 underline-offset-4">Shunya Pizza.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        Designing a pizza brand built to feel like a complete outsider in India. Rejecting forced hospitality, tradition, and the cliché "desi" pizza.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#A3E635] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#001</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#F97316">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Music</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Vinyl & Merch</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#F97316] decoration-4 underline-offset-4">Bhasma Records.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        Visualizing the sound of Bengaluru's concrete underground. A techno label built on industrial decay, heavily distorted bass, and absolute anonymity.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#F97316] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#002</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#E11D48">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Beverage</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Packaging</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#E11D48] decoration-4 underline-offset-4">Rakt Brew.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        Cold brew with a pulse. Disrupting Chennai's traditional filter coffee scene with high-caffeine, unadulterated, milk-free extractions mimicking a blood bank.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#E11D48] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#003</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#FACC15">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Fitness</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Environmental</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#FACC15] decoration-4 underline-offset-4">Krodh Iron.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        An anti-wellness gym. Rejecting the toxic positivity of modern fitness, embracing the raw, therapeutic power of pure anger and heavy lifting.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#FACC15] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#004</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#A855F7">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Cosmetics</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Campaign</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#A855F7] decoration-4 underline-offset-4">Kala Skin.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        A skincare brand actively hostile to India's fairness obsession. Celebrating hyper-pigmentation, scars, and unapologetic dark complexions.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#A855F7] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#005</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#22D3EE">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Fintech</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">UI/UX</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#22D3EE] decoration-4 underline-offset-4">Galla Pay.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        A decentralized financial toolkit for the informal Indian sector. Stripping away banking jargon for purely transactional utility and anonymous trust.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#22D3EE] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#006</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#3B82F6">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Mobility</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Hardware</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#3B82F6] decoration-4 underline-offset-4">Yantra EV.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        Electric mobility built to survive Indian traffic. Zero aesthetic curves, exposed steel frames, and raw, modular repairability for the urban gridlock.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#3B82F6] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#007</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#8B5CF6">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Spirits</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Bottle Design</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#8B5CF6] decoration-4 underline-offset-4">Zeher Spirits.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        A high-proof local Goan Arrack rejecting the pretentious 'premium craft' label. Unapologetic, cheap, and potent toxic transparency.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#8B5CF6] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#008</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block feature-card !p-8 group hover:-translate-y-2 interactive-hover cursor-none !rounded-none" style="background-color: #f5f5f5; border-width: 3px;" data-hover-text="View Case" data-hover-color="#EC4899">
+                    <div class="flex gap-2 mb-6 flex-wrap">
+                        <span class="px-2 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider">Fashion</span>
+                        <span class="px-2 py-1 border-2 border-black text-black text-xs font-bold uppercase tracking-wider">Lookbook</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 group-hover:underline decoration-[#EC4899] decoration-4 underline-offset-4">Fata Garb.</h3>
+                    <p class="text-gray-700 font-bold leading-relaxed mb-8">
+                        Post-apocalyptic streetwear born from Mumbai's largest recycling hub. Upcycled, heavily distressed, and fundamentally imperfect sartorial chaos.
+                    </p>
+                    <div class="flex items-center justify-between border-t-2 border-black pt-4">
+                        <span class="font-black text-sm uppercase group-hover:text-[#EC4899] transition-colors">View Case →</span>
+                        <span class="font-mono font-bold text-xs">#009</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 px-4 md:px-6 border-b-2 border-black bg-[#1ABCFE]" id="analytics">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 md:gap-16">
+            <div class="w-full lg:w-1/2 relative z-10">
+                <div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full border-2 border-[#000] font-bold text-xs uppercase tracking-widest bg-[#FFBD00] text-black shadow-[2px_2px_0px_rgba(0,0,0,1)] mb-4 md:mb-6">The Receipts</div>
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-black mb-4 md:mb-6 leading-tight text-black">
+                    Numbers don't <br><span class="text-white drop-shadow-[4px_4px_0px_#000]">lie.</span>
+                </h2>
+                <p class="text-lg sm:text-xl font-bold mb-8 leading-relaxed text-gray-900">
+                    I don't just talk about organic growth; I engineer it. Here is a snapshot of my recent personal LinkedIn analytics. Pure content strategy, zero ad spend, and an aggressive <strong class="text-black bg-[#0BCB7C] px-1 border border-black">1,581% increase</strong> in impressions.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#contact" class="btn-primary interactive-hover uppercase tracking-wide !bg-black !text-white hover:!bg-[#FFBD00] hover:!text-black hover:!translate-y-[-2px] hover:!shadow-[6px_6px_0px_rgba(0,0,0,1)]" data-hover-text="Hire Me" data-hover-color="#0BCB7C">Get These Results</a>
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-1/2 relative">
+                <div class="bg-white border-4 border-black rounded-2xl p-6 md:p-8 shadow-[12px_12px_0px_rgba(0,0,0,1)] transform rotate-2 hover:rotate-0 transition-transform duration-300 group interactive-hover cursor-none" data-hover-text="Verified" data-hover-color="#0BCB7C">
+                    <div class="flex justify-between items-center mb-6 pb-4 border-b-2 border-gray-200">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-[#F24E1E]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#FFBD00]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#0BCB7C]"></div>
+                        </div>
+                        <span class="font-mono text-xs font-bold text-gray-400 uppercase tracking-widest">LinkedIn_Analytics.csv</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                        <div class="border-2 border-black p-4 rounded-xl bg-[#f5f5f5] shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:-translate-y-1 transition-transform">
+                            <h4 class="text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-black mb-2 tracking-tighter">55K+</h4>
+                            <p class="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-widest mb-3 leading-tight">Post Impressions</p>
+                            <div class="flex items-center flex-wrap gap-2">
+                                <div class="inline-flex items-center gap-1 bg-[#0BCB7C] text-black px-2 py-0.5 text-xs font-black rounded border border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                                    <span>▲ 1,581%</span>
+                                </div>
+                                <span class="text-[10px] font-bold text-gray-500 uppercase">past 7 days</span>
+                            </div>
+                        </div>
+                        <div class="border-2 border-black p-4 rounded-xl bg-[#f5f5f5] shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:-translate-y-1 transition-transform" style="transition-delay: 50ms;">
+                            <h4 class="text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-black mb-2 tracking-tighter">1K+</h4>
+                            <p class="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-widest mb-3 leading-tight">Followers</p>
+                            <div class="flex items-center flex-wrap gap-2">
+                                <div class="inline-flex items-center gap-1 bg-[#0BCB7C] text-black px-2 py-0.5 text-xs font-black rounded border border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                                    <span>▲ 6.8%</span>
+                                </div>
+                                <span class="text-[10px] font-bold text-gray-500 uppercase">past 7 days</span>
+                            </div>
+                        </div>
+                        <div class="border-2 border-black p-4 rounded-xl bg-[#f5f5f5] shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:-translate-y-1 transition-transform" style="transition-delay: 100ms;">
+                            <h4 class="text-3xl sm:text-4xl lg:text-3xl xl:text-4xl font-black mb-2 tracking-tighter">500+</h4>
+                            <p class="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-widest mb-2 leading-tight">Profile Viewers</p>
+                            <span class="text-[10px] font-bold text-gray-500 uppercase">Past 90 days</span>
+                        </div>
+                        <div class="border-2 border-black p-4 rounded-xl bg-[#f5f5f5] shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:-translate-y-1 transition-transform" style="transition-delay: 150ms;">
+                            <h4 class="text-3xl sm:text-4xl lg:text-3xl xl:text-4xl font-black mb-2 tracking-tighter">20+</h4>
+                            <p class="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-widest mb-2 leading-tight">Search Appears</p>
+                            <span class="text-[10px] font-bold text-gray-500 uppercase">Previous week</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-32 px-4 md:px-6 bg-[#FFBD00] text-center border-b-2 border-black relative overflow-hidden" id="contact">
+        <div class="absolute inset-0 opacity-10 pointer-events-none flex flex-col justify-between">
+            <div class="w-[200%] h-12 bg-black transform -rotate-6 -translate-x-10"></div>
+            <div class="w-[200%] h-12 bg-black transform rotate-6 -translate-x-10"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-5xl sm:text-6xl md:text-[100px] font-black leading-[0.9] tracking-tighter mb-6 md:mb-8 uppercase">
+                Take the bet. <br><span class="text-white drop-shadow-[4px_4px_0px_#000]">10x your brand.</span>
+            </h2>
+            
+            <div class="bg-white text-black border-4 border-black p-6 md:p-8 rounded-2xl max-w-2xl mx-auto mb-10 text-left shadow-[12px_12px_0px_rgba(0,0,0,1)] transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="relative flex h-4 w-4">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F24E1E] opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-4 w-4 bg-[#F24E1E]"></span>
+                        </span>
+                        <span class="font-black uppercase tracking-widest text-lg md:text-xl">Strict Availability</span>
+                    </div>
+                    <span class="bg-black text-white font-mono px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_rgba(242,78,30,1)]">HIGH DEMAND</span>
+                </div>
+                <p class="font-bold text-base md:text-lg leading-relaxed text-gray-800">Because I execute every part of the creative and technical stack myself, my bandwidth is capped. I only partner with <strong>2 brands per month</strong>. I am currently reviewing applications for my final spot in <span class="dynamic-month font-black text-[#F24E1E] uppercase underline decoration-4 underline-offset-4">Next Month</span>.</p>
+            </div>
+
+            <a href="mailto:mohithanjan@gmail.com" class="btn-primary text-xl sm:text-2xl px-10 sm:px-16 py-5 sm:py-8 interactive-hover w-full sm:w-auto uppercase tracking-wider hover:!bg-[#1ABCFE] hover:!text-black hover:!border-black" data-hover-text="Secure Spot" data-hover-color="#1ABCFE">
+                Apply To Work With Me
+            </a>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 mt-16 md:mt-24 text-black font-black text-xl uppercase tracking-widest border-t-2 border-black pt-8">
+                <a href="https://www.linkedin.com/in/mohithanjan/" target="_blank" class="hover:text-white transition-colors interactive-hover" data-hover-text="Connect" data-hover-color="#1ABCFE">LinkedIn</a>
+                <a href="https://github.com/Mohithanjan23/" target="_blank" class="hover:text-white transition-colors interactive-hover" data-hover-text="Follow" data-hover-color="#9C70FF">GitHub</a>
+                <a href="https://www.instagram.com/mohithanjan" target="_blank" class="hover:text-white transition-colors interactive-hover" data-hover-text="Follow" data-hover-color="#F24E1E">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 px-4 md:px-6 bg-black text-white flex flex-col md:flex-row items-center justify-between gap-4 font-bold text-xs uppercase tracking-widest text-center md:text-left">
+        <div>© 2026 Mohithanjan — Independent Freelancer</div>
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4 text-gray-400">
+            <span>Built with Hustle.</span>
+            <span class="hidden sm:inline text-[#FFBD00]">/</span>
+            <span>Designed to Scale.</span>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const d = new Date();
+            const nextMonthIndex = (d.getMonth() + 1) % 12;
+            const nextMonth = monthNames[nextMonthIndex];
+            
+            document.querySelectorAll('.dynamic-month').forEach(el => {
+                el.textContent = nextMonth;
+            });
+
+            const cursor = document.getElementById('interactive-cursor');
+            const scaler = document.getElementById('cursor-scaler');
+            const label = document.getElementById('cursor-label-interactive');
+            const svgPath = cursor.querySelector('path');
+            
+            let isDesktop = window.innerWidth >= 768;
+            
+            window.addEventListener('resize', () => {
+                isDesktop = window.innerWidth >= 768;
+                if (!isDesktop) cursor.style.opacity = '0';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDesktop) return;
+                
+                if (cursor.style.opacity === '0' || cursor.style.opacity === '') {
+                    cursor.style.opacity = '1';
+                }
+
+                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            });
+
+            const interactiveElements = document.querySelectorAll('.interactive-hover');
+            
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    if (!isDesktop) return;
+                    
+                    const hoverText = el.getAttribute('data-hover-text') || 'Click';
+                    const hoverColor = el.getAttribute('data-hover-color') || '#FFBD00';
+                    
+                    label.textContent = hoverText;
+                    label.style.backgroundColor = hoverColor;
+                    svgPath.setAttribute('fill', hoverColor);
+                    
+                    scaler.style.transform = 'scale(1.15)';
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    if (!isDesktop) return;
+                    
+                    label.textContent = "You";
+                    label.style.backgroundColor = "#1ABCFE";
+                    svgPath.setAttribute('fill', '#1ABCFE');
+                    
+                    scaler.style.transform = 'scale(1)';
+                });
+            });
+            
+            document.addEventListener('mouseout', (e) => {
+                if (e.relatedTarget === null && isDesktop) {
+                    cursor.style.opacity = '0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
